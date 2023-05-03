@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Project</title>
+</head>
+<body>
+ <a href="{% url 'home' %}">Go to Saved Notes</a>
+ <form action="" method="post">
+    {% csrf_token %}
+        <label for="noteInput" class="noteLabel">Edit Note</label>
+        <input type="text" name="note" value="{{ note.note }}" id="noteInput"/>
+        <br />
+        <br />
+
+        <label for="dateInput" class="dateLabel">Date And Time</label>
+        <input id="dateInput" type="datetime-local" value="{{ note.date_time_issued|date:'Y-m-d\TH:i' }}" name="date_issued" />
+        <br />
+
+        <br/>
+      <label for="category">Edit a category:</label>
+     <select name="category" id="category">
+        <option value="Reminder"{% if note.category.name == "Reminder" %} selected{% endif %}>Reminder</option>
+        <option value="Shopping"{% if note.category.name == "Shopping" %} selected{% endif %}>Shopping</option>
+        <option value="School"{% if note.category.name == "School" %} selected{% endif %}>School</option>
+        <option value="Chores"{% if note.category.name == "Chores" %} selected{% endif %}>Chores</option>
+        <option value="Job"{% if note.category.name == "Job" %} selected{% endif %}>Job</option>
+    </select>
+
+
+  <br><br>
+
+        <input type="submit" id="submitButton" value="Submit"/>
+</form>
+
+{{ user_message }}
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project</title>
+</head>
+<body>
+ <a href="{% url 'home' %}">Go to Saved Notes</a>
+ <form action="" method="post">
+    {% csrf_token %}
+        <label for="noteInput" class="noteLabel">Notes</label>
+        <input type="text" name="note" id="noteInput"/>
+        <br />
+        <br />
+
+        <label for="dateInput" class="dateLabel">Date And Time</label>
+        <input id="dateInput" type="datetime-local" name="date_issued" />
+        <br />
+        <br/>
+        <label for="category">Choose a category:</label>
+        <select name="category" id="category">
+            <option value="Reminder">Reminder</option>
+            <option value="Shopping">Shopping</option>
+            <option value="School">School</option>
+            <option value="Chores">Chores</option>
+            <option value="Job">Job</option>
+        </select>
+  <br><br>
+
+        <input type="submit" id="submitButton" value="Submit"/>
+</form>
+
+
+
+
+
+</body>
+</html>
